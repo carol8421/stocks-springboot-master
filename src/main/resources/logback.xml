@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="3 seconds">
+    <contextName>Stocks</contextName>
+
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/application.log</file>
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
+            </pattern>
+        </encoder>
+        <append>true</append>
+        <append>false</append>
+    </appender>
+
+
+    <jmxConfigurator />
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+
+    <logger name="com" level="ALL" />
+    <logger name="com.ibatis" level="DEBUG" />
+    <logger name="com.ibatis.common.jdbc.SimpleDataSource" level="DEBUG" />
+    <logger name="com.ibatis.common.jdbc.ScriptRunner" level="DEBUG" />
+    <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" />
+    <logger name="java.sql.Connection" level="DEBUG" />
+    <logger name="java.sql.Statement" level="DEBUG" />
+    <logger name="java.sql.PreparedStatement" level="DEBUG" />
+
+
+</configuration>
